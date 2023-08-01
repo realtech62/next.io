@@ -5,8 +5,12 @@ export async function GET() {
 		items: [
 			{
 				id: 1,
-				title: "Item 1"
-			}
+				title: "Hello World",
+			},
+			{
+				id: 2,
+				title: "Hello again",
+			},
 		]
 	})
 }
