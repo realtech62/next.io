@@ -1,14 +1,13 @@
 async function getData() {
 	// 1 endpoint - API?
-	// const endpoint = "http://localhosts:3000/api/posts"
-	// const res = await fetch(endpoint)
-	// if (!res.ok) {
-	// 	throw new Error("Failed to fetch data")
-	// }
+	const endpoint = "http://localhosts:3000/api/posts"
+	const res = await fetch(endpoint)
+	if (!res.ok) {
+		throw new Error("Failed to fetch data")
+	}
 
-	// const data = await res.json()
-	// return data
-	return {items: []}
+	const data = await res.json()
+	return data
 }
 
 export default async function BlogPage() {
