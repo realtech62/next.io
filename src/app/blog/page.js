@@ -1,10 +1,17 @@
 import getDomain from "../lib/getDomain"
 
+// fetch caching options
+
+// force-cache
+
+// revalidate: n seconds
+// no-store
+
 async function getData() {
 	// 1 endpoint - API?
 	const domain = getDomain()
 	const endpoint = `${domain}/api/posts`
-	const res = await fetch(endpoint)
+	const res = await fetch(endpoint, {next: {revalidate: 10}})
 	if (!res.ok) {
 		throw new Error("Failed to fetch data")
 	}
