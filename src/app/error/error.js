@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect } from "react"
+import { useEffect } from 'react'
 
-export default function Error({error, reset}) {
+
+export default function Error({ error, reset }) {
 	useEffect(() => {
 		console.log("error is", error)
 	}, [error])
@@ -12,7 +13,7 @@ export default function Error({error, reset}) {
 	}
 
 	return <div>
-		<h2>OpenAI is not working. Try again!</h2>
-		<button onClick={retryRequestHandler}>Try again</button>
+		<h2>Openai is not working. Try again!</h2>
+		<button onClick={retryRequestHandler}>Retry request</button>
 	</div>
 }
