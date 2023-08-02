@@ -1,5 +1,6 @@
 import getDomain from "../lib/getDomain"
 import BlogCard from "./card"
+import { helloWorld } from "../lib/db"
 
 async function getData() {
 	// 1 endpoint - API?
@@ -21,13 +22,18 @@ async function getData() {
 
 export default async function BlogPage() {
 	const data = await getData()
+	const dbHello = await helloWorld()
+	console.log("dbhello", dbHello)
 	const items = data && data.items ? [...data.items] : []
-	console.log("process.env", process.env.NEXT_PUBLIC_VERCEL_URL)
 	return <main>
 		<h1>Hello World</h1>
+		<p>DB Response: {JSON.stringify(dbHello)}</p>
 		<p>Posts:</p>
 		{data && items.map((item, idx) => {
 			return <BlogCard title={item.title} key={`post-${idx}`}>{item.title}</BlogCard>
 		})}
 	</main>
 }
+
+export const runtime = 'edge'
+export const preferredRegion = 'sin1'
